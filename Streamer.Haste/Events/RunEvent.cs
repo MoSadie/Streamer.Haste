@@ -13,6 +13,7 @@ namespace Streamer.Haste.Events
             if (RunHandler.InRun)
                 return new()
                 {
+                    { "inRun", RunHandler.InRun.ToString() },
                     { "isEndless", RunHandler.isEndless.ToString() },
                     { "isKeepRunning", RunHandler.isKeepRunningMode.ToString() },
                     { "shardId", RunHandler.RunData.shardID.ToString() },
@@ -29,7 +30,13 @@ namespace Streamer.Haste.Events
                     { "maxEnergy", displayStatCorrectly(Player.localPlayer.stats.maxEnergy).ToString() }
                 };
             else
-                return new();
+                return new()
+                {
+                    { "inRun", RunHandler.InRun.ToString() },
+                    { "maxLives", displayStatCorrectly(Player.localPlayer.stats.lives).ToString() },
+                    { "maxHealth", displayStatCorrectly(Player.localPlayer.stats.maxHealth).ToString() },
+                    { "maxEnergy", displayStatCorrectly(Player.localPlayer.stats.maxEnergy).ToString() }
+                };
         }
 
         private static int displayStatCorrectly(PlayerStat stat)
