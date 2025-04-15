@@ -1,0 +1,38 @@
+﻿{
+  "setting_IsModEnabled": {
+    "default": "Streamer.Haste Status",
+    "en-US": "Streamer.Haste Status"
+  },
+  "setting_Enabled": {
+    "default": "Enabled",
+    "en-US": "Enabled"
+  },
+  "setting_Disabled": {
+    "default": "Disabled",
+    "en-US": "Disabled"
+  },
+  "setting_StreamerBotIp": {
+    "default": "Streamer.Bot IP Address (127.0.0.1 if on same computer)",
+    "en-US": "Streamer.Bot IP (127.0.0.1 if on same computer)"
+  },
+  "setting_StreamerBotPort": {
+    "default": "Streamer.Bot Port (default is 7474)",
+    "en-US": "Streamer.Bot Port (default is 7474)"
+  },
+  "setting_StreamerBotActionId": {
+    "default": "Streamer.Bot Action ID (right click Action to copy)",
+    "en-US": "Streamer.Bot Action ID (right click Action to copy)"
+  },
+  "setting_TestButton": {
+    "default": "Send Test Event",
+    "en-US": "Send Test Event"
+  },
+  "setting_DebugLogging": {
+    "default": "Enabled Debug Logging?",
+    "en-US": "Enabled Debug Logging?"
+  },
+  "setting_ReconnectButton": {
+    "default": "Reconnect to Streamer.Bot",
+    "en-US": "Reconnect to Streamer.Bot"
+  }
+}
