@@ -8,7 +8,7 @@ This allows Haste to cause things to happen on stream, for example: automaticall
 
 1) [Install](https://docs.streamer.bot/get-started/installation) and [Setup](https://docs.streamer.bot/get-started/setup) Streamer.bot.
 2) Make sure the [Http Server](https://docs.streamer.bot/api/servers/http) is enabled in Streamer.bot.
-2) Subscribe to this mod on the Steam Workshop.
+2) Subscribe to [this mod on the Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3464256363).
 3) Import the [pre-made Actions](Streamer.Haste.streamerbot) into Streamer.bot
 4) (Optional) Customize the Actions to your liking.
 5) Use the in-game settings menu to test the events!

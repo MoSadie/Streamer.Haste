@@ -34,5 +34,9 @@
   "setting_ReconnectButton": {
     "default": "Reconnect to Streamer.Bot",
     "en-US": "Reconnect to Streamer.Bot"
-  }
+  },
+  "setting_OpenWikiButton": {
+    "default": "Open Wiki",
+    "en-US": "Open Wiki"
+  },
 }

@@ -110,4 +110,19 @@ namespace Streamer.Haste
         public LocalizedString GetDisplayName() => new LocalizedString("Streamer.Haste", "setting_DebugLogging");
         public string GetCategory() => SettingsConstants.Category;
     }
+
+    [HasteSetting]
+    public class OpenWikiButton : ButtonSetting, IExposedSetting
+    {
+        public override string GetButtonText() => new LocalizedString("Streamer.Haste", "setting_OpenWikiButton").GetLocalizedString();
+
+        public override void OnClicked(ISettingHandler settingHandler)
+        {
+            Application.OpenURL("https://mosadie.link/SHasteDocs");
+        }
+
+        public LocalizedString GetDisplayName() => new LocalizedString("Streamer.Haste", "setting_OpenWikiButton");
+
+        public string GetCategory() => SettingsConstants.Category;
+    }
 }
