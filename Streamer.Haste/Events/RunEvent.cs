@@ -14,8 +14,8 @@ namespace Streamer.Haste.Events
                 return new()
                 {
                     { "inRun", RunHandler.InRun.ToString() },
-                    { "isEndless", RunHandler.isEndless.ToString() },
-                    { "isKeepRunning", RunHandler.isKeepRunningMode.ToString() },
+                    { "isEndless", RunHandler.config.isEndless.ToString() },
+                    { "isKeepRunning", RunHandler.RunData.isKeepRunningMode.ToString() },
                     { "shardId", RunHandler.RunData.shardID.ToString() },
                     { "seed", RunHandler.RunData.currentSeed.ToString() },
                     { "queuedNodeCount", RunHandler.RunData.QueuedNodes.Count.ToString() },
