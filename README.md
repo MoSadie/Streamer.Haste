@@ -124,7 +124,7 @@ This event is sent when you win a run/shard. Note this will be sent twice for an
 
 EventType: `RunLose`
 
-This event is sent when you lose a run/shard. Note: leaving endless mode is *technically* a loss, so don't be surprised. You can use `isEndless` to determine if the run was endless or not.
+This event is sent when you lose a run/shard.
 
 <details>
 <summary>Available Event Arguments</summary>

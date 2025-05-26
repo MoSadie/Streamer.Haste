@@ -30,7 +30,7 @@ namespace Streamer.Haste
 
         public override void OnClicked(ISettingHandler settingHandler)
         {
-            StreamerHaste.refreshActionList();
+            StreamerHaste.RefreshActionList();
         }
 
         public LocalizedString GetDisplayName() => new LocalizedString("Streamer.Haste", "setting_ReconnectButton");

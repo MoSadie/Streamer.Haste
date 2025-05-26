@@ -70,10 +70,12 @@ public class StreamerHaste
             SendEvent(new LevelStartEvent());
         };
 
+
         // LevelWin
-        GM_API.playerEnteredPortalAction += () =>
+        GM_API.PlayerEnteredPortal += (player) =>
         {
-            DebugLog($"Player entered portal, sending LevelWin event");
+            bool isLocalPlayer = Player.localPlayer != null && Player.localPlayer.Equals(player);
+            DebugLog($"Player entered portal, sending LevelWin event (isLocalPlayer: ${isLocalPlayer})");
             SendEvent(new LevelWinEvent());
         };
 
@@ -102,9 +104,10 @@ public class StreamerHaste
         //};
 
         // Died
-        GM_API.Died += () =>
+        GM_API.Died += (player) =>
         {
-            DebugLog("Player died, sending Died event");
+            bool isLocalPlayer = Player.localPlayer != null && Player.localPlayer.Equals(player);
+            DebugLog("Player died, sending Died event (isLocalPlayer: ${isLocalPlayer})");
             SendEvent(new DiedEvent());
         };
 
@@ -152,13 +155,13 @@ public class StreamerHaste
                 Debug.Log($"[Streamer.Haste] {message}");
             }
         }
-        catch (Exception e) // For when settings don't exist
+        catch (Exception) // For when settings don't exist
         {
             Debug.Log($"[Streamer.Haste fallback] {message}");
         }
     }
 
-    internal static void refreshActionList()
+    internal static void RefreshActionList()
     {
         // Make a request to http://<streamerbot_ip>:<streamerbot_port>/GetActions
 
@@ -202,7 +205,7 @@ public class StreamerHaste
                     return;
                 }
 
-                Dictionary<string, string> actions = new();
+                Dictionary<string, string> actions = [];
 
                 foreach (Dictionary<string, string> action in getActionsResponse.actions)
                 {
@@ -219,14 +222,14 @@ public class StreamerHaste
         }
     }
 
-    internal static string? getTheActionName()
+    internal static string? GetTheActionName()
     {
         try
         {
             if (BotActions == null || BotActions.Count == 0)
             {
                 DebugLog("No actions found, attempting to refresh", true);
-                refreshActionList();
+                RefreshActionList();
             }
 
             if (BotActions == null || !BotActions.ContainsKey(Settings.getActionIdSetting().Value))
@@ -263,7 +266,7 @@ public class StreamerHaste
                 return false;
             }
 
-            string? actionName = getTheActionName();
+            string? actionName = GetTheActionName();
 
             if (actionName == null)
             {
@@ -304,7 +307,7 @@ public class StreamerHaste
                     return false;
                 }
 
-                DebugLog($"Event sent successfully, result is {webRequest.result.ToString()}", true);
+                DebugLog($"Event sent successfully, result is {webRequest.result}", true);
                 return webRequest.result == UnityWebRequest.Result.Success;
 
             }

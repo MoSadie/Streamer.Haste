@@ -21,25 +21,25 @@ namespace Streamer.Haste.Events
                     { "queuedNodeCount", RunHandler.RunData.QueuedNodes.Count.ToString() },
                     { "runTitle", RunHandler.RunData.runConfig.title },
                     { "lives", RunHandler.RunData.playerData.lives.ToString() },
-                    { "maxLives", displayStatCorrectly(Player.localPlayer.stats.lives).ToString() },
+                    { "maxLives", DisplayStatCorrectly(Player.localPlayer.stats.lives).ToString() },
                     { "currentLevel", RunHandler.RunData.currentLevel.ToString() },
-                    { "currentLevelType", RunHandler.RunData.currentNodeType.ToString() },
+                    { "currentLevelType", RunHandler.RunData.currentNode.type.ToString() },
                     { "currentHealth", Player.localPlayer.data.currentHealth.ToString() },
-                    { "maxHealth", displayStatCorrectly(Player.localPlayer.stats.maxHealth).ToString() },
+                    { "maxHealth", DisplayStatCorrectly(Player.localPlayer.stats.maxHealth).ToString() },
                     { "currentEnergy", Player.localPlayer.data.energy.ToString() },
-                    { "maxEnergy", displayStatCorrectly(Player.localPlayer.stats.maxEnergy).ToString() }
+                    { "maxEnergy", DisplayStatCorrectly(Player.localPlayer.stats.maxEnergy).ToString() }
                 };
             else
                 return new()
                 {
                     { "inRun", RunHandler.InRun.ToString() },
-                    { "maxLives", displayStatCorrectly(Player.localPlayer.stats.lives).ToString() },
-                    { "maxHealth", displayStatCorrectly(Player.localPlayer.stats.maxHealth).ToString() },
-                    { "maxEnergy", displayStatCorrectly(Player.localPlayer.stats.maxEnergy).ToString() }
+                    { "maxLives", DisplayStatCorrectly(Player.localPlayer.stats.lives).ToString() },
+                    { "maxHealth", DisplayStatCorrectly(Player.localPlayer.stats.maxHealth).ToString() },
+                    { "maxEnergy", DisplayStatCorrectly(Player.localPlayer.stats.maxEnergy).ToString() }
                 };
         }
 
-        private static int displayStatCorrectly(PlayerStat stat)
+        private static int DisplayStatCorrectly(PlayerStat stat)
         {
             if (stat.baseValue == 0)
                 return 0;
