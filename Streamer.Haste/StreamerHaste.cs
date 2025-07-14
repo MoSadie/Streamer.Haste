@@ -76,7 +76,7 @@ public class StreamerHaste
         {
             bool isLocalPlayer = Player.localPlayer != null && Player.localPlayer.Equals(player);
             DebugLog($"Player entered portal, sending LevelWin event (isLocalPlayer: ${isLocalPlayer})");
-            SendEvent(new LevelWinEvent());
+            SendEvent(new LevelWinEvent(player));
         };
 
         // LevelRestart
@@ -108,7 +108,7 @@ public class StreamerHaste
         {
             bool isLocalPlayer = Player.localPlayer != null && Player.localPlayer.Equals(player);
             DebugLog("Player died, sending Died event (isLocalPlayer: ${isLocalPlayer})");
-            SendEvent(new DiedEvent());
+            SendEvent(new DiedEvent(player));
         };
 
         // TutorialStep

@@ -8,7 +8,12 @@ namespace Streamer.Haste.Events
     internal abstract class RunEvent : StreamerBotEvent
     {
         public abstract string GetEventType();
+
         public virtual Dictionary<string, string> GetEventData()
+        {
+            return GetEventData(Player.localPlayer);
+        }
+        public virtual Dictionary<string, string> GetEventData(Player player)
         {
             if (RunHandler.InRun)
                 return new()
@@ -21,21 +26,23 @@ namespace Streamer.Haste.Events
                     { "queuedNodeCount", RunHandler.RunData.QueuedNodes.Count.ToString() },
                     { "runTitle", RunHandler.RunData.runConfig.title },
                     { "lives", RunHandler.RunData.playerData.lives.ToString() },
-                    { "maxLives", DisplayStatCorrectly(Player.localPlayer.stats.lives).ToString() },
+                    { "maxLives", DisplayStatCorrectly(player.stats.lives).ToString() },
                     { "currentLevel", RunHandler.RunData.currentLevel.ToString() },
                     { "currentLevelType", RunHandler.RunData.currentNode.type.ToString() },
-                    { "currentHealth", Player.localPlayer.data.currentHealth.ToString() },
-                    { "maxHealth", DisplayStatCorrectly(Player.localPlayer.stats.maxHealth).ToString() },
-                    { "currentEnergy", Player.localPlayer.data.energy.ToString() },
-                    { "maxEnergy", DisplayStatCorrectly(Player.localPlayer.stats.maxEnergy).ToString() }
-                };
+                    { "currentHealth", player.data.currentHealth.ToString() },
+                    { "maxHealth", DisplayStatCorrectly(player.stats.maxHealth).ToString() },
+                    { "currentEnergy", player.data.energy.ToString() },
+                    { "maxEnergy", DisplayStatCorrectly(player.stats.maxEnergy).ToString() },
+                    { "isLocalPlayer", Player.localPlayer.Equals(player).ToString() }
+        };
             else
                 return new()
                 {
                     { "inRun", RunHandler.InRun.ToString() },
-                    { "maxLives", DisplayStatCorrectly(Player.localPlayer.stats.lives).ToString() },
-                    { "maxHealth", DisplayStatCorrectly(Player.localPlayer.stats.maxHealth).ToString() },
-                    { "maxEnergy", DisplayStatCorrectly(Player.localPlayer.stats.maxEnergy).ToString() }
+                    { "maxLives", DisplayStatCorrectly(player.stats.lives).ToString() },
+                    { "maxHealth", DisplayStatCorrectly(player.stats.maxHealth).ToString() },
+                    { "maxEnergy", DisplayStatCorrectly(player.stats.maxEnergy).ToString() },
+                    { "isLocalPlayer", Player.localPlayer.Equals(player).ToString() }
                 };
         }
 
